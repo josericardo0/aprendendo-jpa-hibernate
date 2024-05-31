@@ -1,15 +1,30 @@
 package model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Curso {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String nome;
+
     private String autor;
 
-    public Curso(){
+    public Curso() {
+    }
+
+    public Curso(String nome, String autor) {
+        this.nome = nome;
+        this.autor = autor;
     }
 
     public Curso(long id, String nome, String autor) {
-        super();
         this.id = id;
         this.nome = nome;
         this.autor = autor;
