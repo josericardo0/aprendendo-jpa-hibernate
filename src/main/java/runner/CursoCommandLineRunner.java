@@ -4,6 +4,7 @@ import model.Curso;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import repository.CursoRepositoryJPA;
 import repository.CursoSpringDataJPARepository;
 
 @Component
@@ -13,11 +14,7 @@ public class CursoCommandLineRunner implements CommandLineRunner {
 //    private CursoRepositoryJPA repository;
 
     @Autowired
-    private final CursoSpringDataJPARepository repository;
-
-    public CursoCommandLineRunner(CursoSpringDataJPARepository repository) {
-        this.repository = repository;
-    }
+    private CursoSpringDataJPARepository repository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -35,5 +32,8 @@ public class CursoCommandLineRunner implements CommandLineRunner {
 
         System.out.println(repository.findByAutor("Ledo Vaccaro"));
         System.out.println(repository.findByNome("Biologia"));
+
+
+
     }
 }
